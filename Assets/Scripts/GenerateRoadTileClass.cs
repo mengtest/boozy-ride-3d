@@ -4,7 +4,7 @@ using System.Collections;
 public class GenerateRoadTileClass : MonoBehaviour {
 
 	private float distance = 15.0f;
-	public GameObject roadTiles;
+	public GameObject [] roadTiles;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +19,10 @@ public class GenerateRoadTileClass : MonoBehaviour {
 	void CreateRoad(){
 		distance += 15.0f;
 
-		Vector3 spawnPosition = new Vector3(0,0, distance);
-		Instantiate (roadTiles, spawnPosition, roadTiles.transform.rotation);
+		int selectIndex = Random.Range (0, roadTiles.Length - 1);
+
+		Vector3 spawnPosition = new Vector3(0, 0, distance);
+		Instantiate (roadTiles[selectIndex], spawnPosition, roadTiles[selectIndex].transform.rotation);
 
 	}
 }

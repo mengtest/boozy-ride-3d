@@ -11,13 +11,11 @@ public class VehicleClass : MonoBehaviour {
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody> ();
 	}
-	
-	void FixedUpdate () {	
-		//Move ();
-		//Rotate ();
-	}
 
 	void Update () {
+
+		gameObject.transform.Translate (Vector3.forward);
+
 		if (Input.GetMouseButtonDown (0)) {
 			vehicleDirection *= -1;
 		}
@@ -32,8 +30,4 @@ public class VehicleClass : MonoBehaviour {
 		rb.AddForce (force);
 	}
 
-	void Rotate(){
-		//transform.Rotate (0, vehicleDirection * Time.deltaTime * speed, 0);
-	}
-	
 }
