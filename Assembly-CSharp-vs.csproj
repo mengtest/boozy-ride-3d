@@ -46,7 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CameraClass.cs" />
+     <Compile Include="Assets\Scripts\GenerateRoadTileClass.cs" />
      <Compile Include="Assets\Scripts\RoadClass.cs" />
+     <Compile Include="Assets\Scripts\RoadTileClass.cs" />
      <Compile Include="Assets\Scripts\VehicleClass.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

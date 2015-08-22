@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\VehicleClass.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GenerateRoadTileClass.cs">
     <Files>
-      <File FileName="Assets\Scripts\VehicleClass.cs" Line="31" Column="55" />
+      <File FileName="Assets\Scripts\GenerateRoadTileClass.cs" Line="11" Column="44" />
+      <File FileName="Assets\Scripts\RoadTileClass.cs" Line="18" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
