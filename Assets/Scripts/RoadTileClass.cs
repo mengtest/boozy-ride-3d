@@ -3,8 +3,6 @@ using System.Collections;
 
 public class RoadTileClass : MonoBehaviour {
 
-	float timeLimit = 30.0f;
-
 	// Use this for initialization
 	void Start () {
 	

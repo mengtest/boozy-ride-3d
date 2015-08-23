@@ -8,7 +8,7 @@ public class GenerateRoadTileClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("CreateRoad", 0f, 2.0f);
+		InvokeRepeating ("CreateRoad", 1.0f, 2.0f);
 	}
 	
 	// Update is called once per frame
@@ -17,6 +17,7 @@ public class GenerateRoadTileClass : MonoBehaviour {
 	}
 
 	void CreateRoad(){
+
 		distance += 15.0f;
 
 		float random = Random.Range (0, roadTiles.Length);

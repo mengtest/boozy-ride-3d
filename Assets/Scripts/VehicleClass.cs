@@ -15,6 +15,7 @@ public class VehicleClass : MonoBehaviour {
 	void Update () {
 
 		Camera.main.transform.Translate (0, 0, speed * Time.deltaTime, Space.World);
+
 		gameObject.transform.Translate (0, 0, speed * Time.deltaTime, Space.World);
 
 		Vector3 turnForce = new Vector3 (vehicleDirection * 1000, 0, 0);
