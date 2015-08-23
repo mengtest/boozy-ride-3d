@@ -1383,7 +1383,6 @@ GameObject:
   - 4: {fileID: 460510}
   - 65: {fileID: 6535546}
   - 54: {fileID: 5471558}
-  - 114: {fileID: 11483734}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Untagged
@@ -7534,24 +7533,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .867166877, y: 1.15544558, z: 1.60608983}
   m_Center: {x: -.566860497, y: .53563261, z: .625029206}
---- !u!114 &11483734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49185d566f0a9724ab4f936d0932a43f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171008}
