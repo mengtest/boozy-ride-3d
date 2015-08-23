@@ -4,8 +4,9 @@ using System.Collections;
 public class VehicleClass : MonoBehaviour {
 
 	float speed = 5.0f;
+	int timer = 20;
     bool value = false; 
-
+	bool collided = false;
 
 	void Start () {
 
@@ -31,13 +32,21 @@ public class VehicleClass : MonoBehaviour {
             transform.Rotate(0, Time.deltaTime * -30, 0);
         }
 
+		if (collided) {
+			if(timer > 0){
+				timer --;
+			}
+		}
+
+		if (collided && (timer == 0)) {
+			Time.timeScale = 0;
+		}
+
 	}
 
 	void OnCollisionEnter(Collision col){
 		if (!(col.gameObject.tag == "Road")) {
-			print ("collided");
-
-			Time.timeScale = 0;
+			collided = true;
 		}
 	}
 }
