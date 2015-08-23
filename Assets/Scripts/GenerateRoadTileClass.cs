@@ -19,10 +19,16 @@ public class GenerateRoadTileClass : MonoBehaviour {
 	void CreateRoad(){
 		distance += 15.0f;
 
-		int selectIndex = Random.Range (0, roadTiles.Length - 1);
+		float random = Random.Range (0, roadTiles.Length);
+
+		print (random);
+
+		int selectedIndex = (int)random;
+
+		GameObject selectedGameObject = roadTiles [selectedIndex];
 
 		Vector3 spawnPosition = new Vector3(0, 0, distance);
-		Instantiate (roadTiles[selectIndex], spawnPosition, roadTiles[selectIndex].transform.rotation);
+		Instantiate (selectedGameObject, spawnPosition, selectedGameObject.transform.rotation);
 
 	}
 }
