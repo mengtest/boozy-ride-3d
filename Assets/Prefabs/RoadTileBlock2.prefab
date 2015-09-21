@@ -81,7 +81,7 @@ GameObject:
   - 65: {fileID: 6501036}
   m_Layer: 0
   m_Name: Grill_R (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   - 114: {fileID: 11440628}
   m_Layer: 0
   m_Name: RoadTileBlock2
-  m_TagString: Untagged
+  m_TagString: Env
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,7 +474,7 @@ GameObject:
   - 65: {fileID: 6579688}
   m_Layer: 0
   m_Name: Grill_L (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1861,7 +1861,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 156594}

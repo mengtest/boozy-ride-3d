@@ -11,7 +11,7 @@ public class GenerateRoadTileClass : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //InvokeRepeating ("CreateRoad",1.0f, 2.0f);
+        InvokeRepeating ("CreateRoad", 1.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -22,15 +22,15 @@ public class GenerateRoadTileClass : MonoBehaviour
 
     void FixedUpdate()
     {
-        float camPos = Camera.main.transform.position.z;
+        //float camPos = Camera.main.transform.position.z;
 
-        float d = Math.Abs(distance - camPos);
+        //float d = Math.Abs(distance - camPos);
 
-        if (d > 0.0f)
-        {
-            CreateRoad();
-            //CreateRoad();
-        }
+        //if (d > 0.0f)
+        //{
+        //    CreateRoad();
+        //    //CreateRoad();
+        //}
     }
 
     void CreateRoad()
