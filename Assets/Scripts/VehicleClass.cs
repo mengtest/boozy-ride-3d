@@ -39,7 +39,7 @@ public class VehicleClass : MonoBehaviour {
 		}
 
 		if (collided && (timer == 0)) {
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 		}
 
 	}

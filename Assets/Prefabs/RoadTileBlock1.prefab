@@ -78,6 +78,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495866}
+  - 114: {fileID: 11437908}
   m_Layer: 0
   m_Name: RoadTileBlock1
   m_TagString: Untagged
@@ -404,7 +405,6 @@ GameObject:
   - 33: {fileID: 3388038}
   - 23: {fileID: 2366122}
   - 64: {fileID: 6485838}
-  - 114: {fileID: 11490254}
   m_Layer: 0
   m_Name: RoadTile1
   m_TagString: Untagged
@@ -2008,12 +2008,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 27.7125416, y: 5.08224487, z: 8.25233746}
   m_Center: {x: 10.8562708, y: -.0411211997, z: 4.12578201}
---- !u!114 &11490254
+--- !u!114 &11437908
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169290}
+  m_GameObject: {fileID: 113894}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afcaf3dc31de6c04c8be3057ae8022c2, type: 3}
