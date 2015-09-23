@@ -5,13 +5,15 @@ using System;
 public class GenerateRoadTileClass : MonoBehaviour
 {
 
-    private float distance = 15.0f;
+    private float distance = 30.0f;
     public GameObject[] roadTiles;
+    public GameObject coin;
 
     // Use this for initialization
     void Start()
     {
         InvokeRepeating ("CreateRoad", 1.0f, 2.0f);
+        InvokeRepeating("CreateCoin", 1.0f, 2.0f);   
     }
 
     // Update is called once per frame
@@ -22,30 +24,24 @@ public class GenerateRoadTileClass : MonoBehaviour
 
     void FixedUpdate()
     {
-        //float camPos = Camera.main.transform.position.z;
 
-        //float d = Math.Abs(distance - camPos);
-
-        //if (d > 0.0f)
-        //{
-        //    CreateRoad();
-        //    //CreateRoad();
-        //}
     }
 
     void CreateRoad()
     {
         distance += 15.0f;
-
-        float random = UnityEngine.Random.Range(0, roadTiles.Length);
-
-        int selectedIndex = (int)random;
-
+        float randomO = UnityEngine.Random.Range(0, roadTiles.Length);
+        int selectedIndex = (int)randomO;
         GameObject selectedGameObject = roadTiles[selectedIndex];
-
         Vector3 spawnPosition = new Vector3(0, 0, distance);
-
         Instantiate(selectedGameObject, spawnPosition, selectedGameObject.transform.rotation);
+    }
 
+    void CreateCoin()
+    {        
+        float randomZ = UnityEngine.Random.Range(distance, distance + 15.0f);
+        float randomX = UnityEngine.Random.Range(-2.0f, 2.0f);
+        Vector3 spawnPosition = new Vector3(randomX, 0.5f, randomZ);
+        Instantiate(coin, spawnPosition, coin.transform.rotation);
     }
 }

@@ -47,7 +47,6 @@ public class VehicleClass : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag == "Wall") {
 			collided = true;
-
             Application.LoadLevel("GameOverScene");
 		}
 	}
