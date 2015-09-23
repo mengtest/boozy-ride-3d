@@ -20,15 +20,15 @@ public class VehicleContainerClass : MonoBehaviour {
 		gameObject.transform.Translate (0, 0, speed * Time.deltaTime, Space.World);
 
 
-		if (Input.GetMouseButtonDown(0) && value == false)
-		{
-			value = true;
-		}
-		else if (Input.GetMouseButtonDown(0) && value == true)
-		{
-			value = false;
-		}
-		
+        if ((Input.GetMouseButtonDown(0) && value == false) || Input.touchCount == 1)
+        {
+            value = true;
+        }
+        else if ((Input.GetMouseButtonDown(0) && value == true) || Input.touchCount == 1)
+        {
+            value = false;
+        }
+
 		if (value == false)
 		{
 			transform.Translate(new Vector3(1 * Time.deltaTime * 4, 0, 0));

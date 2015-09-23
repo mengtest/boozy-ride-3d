@@ -6,8 +6,11 @@ public class VehicleClass : MonoBehaviour
 {
 
     float speed = 5.0f;
-    int timer = 20;
+
     bool value = false;
+    bool isCollided = false;
+
+    float timer = 10.0f;
 
     public Text distanceText;
     public Text coinText;
@@ -29,32 +32,47 @@ public class VehicleClass : MonoBehaviour
         distance += 0.1f;
         UpdateDistance();
 
-        if (Input.GetMouseButtonDown(0) && value == false)
+        if (isCollided)
         {
-            value = true;
+            timer -= 1.0f;
+
+            if (timer == 0.0f)
+            {
+                Application.LoadLevel("GameOverScene");
+            }
         }
-        else if (Input.GetMouseButtonDown(0) && value == true)
+        else
         {
-            value = false;
+            if ((Input.GetMouseButtonDown(0) && value == false) || Input.touchCount == 1)
+            {
+                value = true;
+            }
+            else if ((Input.GetMouseButtonDown(0) && value == true) || Input.touchCount == 1)
+            {
+                value = false;
+            }
+
+            if (value == false)
+            {
+                transform.Rotate(0, Time.deltaTime * 30, 0);
+            }
+            else if (value == true)
+            {
+                transform.Rotate(0, Time.deltaTime * -30, 0);
+            }
         }
 
-        if (value == false)
-        {
-            transform.Rotate(0, Time.deltaTime * 30, 0);
-        }
-        else if (value == true)
-        {
-            transform.Rotate(0, Time.deltaTime * -30, 0);
-        }
+        
 
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Wall" || other.gameObject.tag == "CrossCar")
         {
+            isCollided = true;
             wallCollision.Play();
-            Application.LoadLevel("GameOverScene");
+            
         }
     }
 
@@ -78,4 +96,5 @@ public class VehicleClass : MonoBehaviour
     {
         coinText.text = collectedCoins.ToString();
     }
+    
 }
