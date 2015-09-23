@@ -19,12 +19,13 @@ public class CoinClass : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
-
-    void OnCollisionEnter(Collision col)
+    
+    void OnTriggerEnter(Collider other)
     {
-        if (col.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }
     }
+
 }

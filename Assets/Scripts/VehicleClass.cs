@@ -15,6 +15,9 @@ public class VehicleClass : MonoBehaviour
     private int distance;
     private int collectedCoins;
 
+    public AudioSource coinSound;
+    public AudioSource wallCollision;
+
     void Start()
     {
         distance = 0;
@@ -35,7 +38,7 @@ public class VehicleClass : MonoBehaviour
             value = false;
         }
 
-        /*
+        
 
         if (value == false)
         {
@@ -45,24 +48,28 @@ public class VehicleClass : MonoBehaviour
         {
             transform.Rotate(0, Time.deltaTime * -30, 0);
         }
-
-        */
         
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision other)
     {
-        if (col.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Wall")
         {            
+
+
             Application.LoadLevel("GameOverScene");
         }
+    }
 
-        if (col.gameObject.tag == "Coin")
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
         {
-            
+            coinSound.Play();
 
             collectedCoins++;
             UpdateCoinCount();
+            
         }
     }
 
