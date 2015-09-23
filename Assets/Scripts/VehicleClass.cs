@@ -1,18 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class VehicleClass : MonoBehaviour {
+public class VehicleClass : MonoBehaviour
+{
 
-	float speed = 5.0f;
-	int timer = 20;
-    bool value = false; 
-	bool collided = false;
+    float speed = 5.0f;
+    int timer = 20;
+    bool value = false;
 
-	void Start () {
+    public Text distanceText;
+    public Text coinText;
 
-	}
+    private int distance;
+    private int collectedCoins;
 
-	void Update () {
+    void Start()
+    {
+        distance = 0;
+        collectedCoins = 0;
+    }
+
+    void Update()
+    {
+        distance++;
 
         if (Input.GetMouseButtonDown(0) && value == false)
         {
@@ -31,23 +42,30 @@ public class VehicleClass : MonoBehaviour {
         {
             transform.Rotate(0, Time.deltaTime * -30, 0);
         }
+        
+    }
 
-		if (collided) {
-			if(timer > 0){
-				timer --;
-			}
-		}
-
-		if (collided && (timer == 0)) {
-			//Time.timeScale = 0;
-		}
-
-	}
-
-	void OnCollisionEnter(Collision col){
-		if (col.gameObject.tag == "Wall") {
-			collided = true;
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Wall")
+        {            
             Application.LoadLevel("GameOverScene");
-		}
-	}
+        }
+
+        if (col.gameObject.tag == "Coin")
+        {
+            collectedCoins++;
+            UpdateCoinCount();
+        }
+    }
+
+    void UpdateDistance()
+    {
+        distanceText.text = distance.ToString();
+    }
+
+    void UpdateCoinCount()
+    {
+        coinText.text = collectedCoins.ToString();
+    }
 }
