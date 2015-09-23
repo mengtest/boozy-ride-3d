@@ -294,33 +294,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35701547342cd0646956a7cb20286c01, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &480415892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 480415893}
-  m_Layer: 0
-  m_Name: CoinSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &480415893
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 480415892}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1001 &612639332
 Prefab:
   m_ObjectHideFlags: 0
@@ -511,7 +484,7 @@ Transform:
   m_Children:
   - {fileID: 1316661967}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &1425230351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +579,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 156594, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}
       propertyPath: m_Name
-      value: RoadTileBlock2 (1)
+      value: RoadTileBlock3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}

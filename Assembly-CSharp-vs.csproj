@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraClass.cs" />
-     <Compile Include="Assets\Scripts\GenerateCoinClass.cs" />
      <Compile Include="Assets\Scripts\GenerateRoadTileClass.cs" />
      <Compile Include="Assets\Scripts\RoadClass.cs" />
      <Compile Include="Assets\Scripts\RoadTileClass.cs" />
