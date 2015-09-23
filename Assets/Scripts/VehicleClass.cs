@@ -12,7 +12,7 @@ public class VehicleClass : MonoBehaviour
     public Text distanceText;
     public Text coinText;
 
-    private int distance;
+    private float distance;
     private int collectedCoins;
 
     public AudioSource coinSound;
@@ -26,7 +26,7 @@ public class VehicleClass : MonoBehaviour
 
     void Update()
     {
-        distance++;
+        distance += 0.1f;
         UpdateDistance();
 
         if (Input.GetMouseButtonDown(0) && value == false)
@@ -38,8 +38,6 @@ public class VehicleClass : MonoBehaviour
             value = false;
         }
 
-        
-
         if (value == false)
         {
             transform.Rotate(0, Time.deltaTime * 30, 0);
@@ -48,15 +46,14 @@ public class VehicleClass : MonoBehaviour
         {
             transform.Rotate(0, Time.deltaTime * -30, 0);
         }
-        
+
     }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Wall")
-        {            
-
-
+        {
+            wallCollision.Play();
             Application.LoadLevel("GameOverScene");
         }
     }
@@ -65,17 +62,16 @@ public class VehicleClass : MonoBehaviour
     {
         if (other.gameObject.tag == "Coin")
         {
+            Destroy(other.gameObject);
             coinSound.Play();
-
             collectedCoins++;
             UpdateCoinCount();
-            
         }
     }
 
     void UpdateDistance()
     {
-        distanceText.text = distance.ToString();
+        distanceText.text = ((int)distance).ToString();
     }
 
     void UpdateCoinCount()

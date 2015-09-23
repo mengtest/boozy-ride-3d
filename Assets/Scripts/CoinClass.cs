@@ -19,13 +19,5 @@ public class CoinClass : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
-    
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
-    }
 
 }
