@@ -24,6 +24,7 @@ public class VehicleClass : MonoBehaviour
     void Update()
     {
         distance++;
+        UpdateDistance();
 
         if (Input.GetMouseButtonDown(0) && value == false)
         {
@@ -34,6 +35,8 @@ public class VehicleClass : MonoBehaviour
             value = false;
         }
 
+        /*
+
         if (value == false)
         {
             transform.Rotate(0, Time.deltaTime * 30, 0);
@@ -42,6 +45,8 @@ public class VehicleClass : MonoBehaviour
         {
             transform.Rotate(0, Time.deltaTime * -30, 0);
         }
+
+        */
         
     }
 
@@ -54,6 +59,8 @@ public class VehicleClass : MonoBehaviour
 
         if (col.gameObject.tag == "Coin")
         {
+            
+
             collectedCoins++;
             UpdateCoinCount();
         }
