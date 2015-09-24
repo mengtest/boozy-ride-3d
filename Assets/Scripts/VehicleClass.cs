@@ -31,6 +31,7 @@ public class VehicleClass : MonoBehaviour
     {
         distance += 0.1f;
         UpdateDistance();
+        CheckScore((int)distance);
 
         if (isCollided)
         {
@@ -62,8 +63,6 @@ public class VehicleClass : MonoBehaviour
             }
         }
 
-        
-
     }
 
     void OnCollisionEnter(Collision other)
@@ -72,7 +71,8 @@ public class VehicleClass : MonoBehaviour
         {
             isCollided = true;
             wallCollision.Play();
-            
+
+            print("Score: " + ((int)distance) + " High Score : " + PlayerPrefs.GetInt("highScore"));
         }
     }
 
@@ -96,5 +96,15 @@ public class VehicleClass : MonoBehaviour
     {
         coinText.text = collectedCoins.ToString();
     }
-    
+
+    void CheckScore(int newScore)
+    {
+        int oldScore = PlayerPrefs.GetInt("highScore", 0);
+
+        if (oldScore < newScore)
+        {
+            PlayerPrefs.SetInt("highScore", newScore);
+            print("High Score updated: " + newScore);
+        }
+    }
 }
