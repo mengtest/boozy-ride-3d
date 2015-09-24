@@ -31,7 +31,12 @@ public class VehicleClass : MonoBehaviour
     {
         distance += 0.1f;
         UpdateDistance();
-        CheckScore((int)distance);
+        bool scorePassed = CheckScore((int)distance);
+
+        if (scorePassed)
+        {
+            distanceText.color = Color.cyan;
+        }
 
         if (isCollided)
         {
@@ -97,7 +102,7 @@ public class VehicleClass : MonoBehaviour
         coinText.text = collectedCoins.ToString();
     }
 
-    void CheckScore(int newScore)
+    bool CheckScore(int newScore)
     {
         int oldScore = PlayerPrefs.GetInt("highScore", 0);
 
@@ -105,6 +110,10 @@ public class VehicleClass : MonoBehaviour
         {
             PlayerPrefs.SetInt("highScore", newScore);
             print("High Score updated: " + newScore);
+
+            return true;
         }
+
+        return false;
     }
 }
