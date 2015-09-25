@@ -102,6 +102,8 @@ public class VehicleClass : MonoBehaviour
             isCollided = true;
             wallCollision.Play();
 
+            PlayerPrefs.SetInt("yourScore", (int)distance);
+
             print("Score: " + ((int)distance) + " High Score : " + PlayerPrefs.GetInt("highScore"));
         }
     }
