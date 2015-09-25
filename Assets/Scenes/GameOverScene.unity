@@ -159,7 +159,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 109101032}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
