@@ -22,7 +22,7 @@ public class VehicleClass : MonoBehaviour
     public AudioSource wallCollision;
 
     public float rotateSpeed = 80.0f;
-    private float zeroSpeed = 0.0f; 
+    private float zeroSpeed = 0.0f;
 
     void Start()
     {
@@ -93,22 +93,32 @@ public class VehicleClass : MonoBehaviour
             }
         }
 
+        float xPos = gameObject.transform.position.x;
+
+        if ((xPos < -12.0f) || (xPos > 12.0f))
+        {
+            if (!isCollided)
+                wallCollision.Play();
+
+            isCollided = true;
+
+            SetScore();
+
+            Application.LoadLevel("GameOverScene");
+        }
+
     }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Wall" || other.gameObject.tag == "CrossCar")
-        {            
-            if(!isCollided)
+        {
+            if (!isCollided)
                 wallCollision.Play();
 
             isCollided = true;
 
-            PlayerPrefs.SetInt("yourScore", (int)distance);
-            if(CheckScore((int)distance))
-                PlayerPrefs.SetInt("highScore", (int)distance);
-
-            print("Score: " + ((int)distance) + " High Score : " + PlayerPrefs.GetInt("highScore"));
+            SetScore();
         }
     }
 
@@ -143,5 +153,14 @@ public class VehicleClass : MonoBehaviour
         }
 
         return false;
+    }
+
+    void SetScore()
+    {
+        PlayerPrefs.SetInt("yourScore", (int)distance);
+        if (CheckScore((int)distance))
+        {
+            PlayerPrefs.SetInt("highScore", (int)distance);
+        }
     }
 }
