@@ -212,7 +212,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!1 &318607446
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472462, guid: ea801ae90de037143aa9f23c749519ea, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea801ae90de037143aa9f23c749519ea, type: 2}
@@ -754,7 +754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
 --- !u!1 &1316661966 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 171008, guid: bd26e06b7fb8b194c9bea8f285c6eead, type: 2}
@@ -778,6 +778,7 @@ MonoBehaviour:
   coinText: {fileID: 134043740}
   coinSound: {fileID: 474236199}
   wallCollision: {fileID: 1398050410}
+  rotateSpeed: 80
 --- !u!1001 &1339401935
 Prefab:
   m_ObjectHideFlags: 0
@@ -961,7 +962,7 @@ Transform:
   m_Children:
   - {fileID: 1316661967}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1425230351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,7 +1155,7 @@ RectTransform:
   m_Children:
   - {fileID: 885519894}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1197,7 +1198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 421242, guid: a1a40c5906a132e479a671d7b72364c8, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1a40c5906a132e479a671d7b72364c8, type: 2}
@@ -1275,7 +1276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1001 &2103799059
 Prefab:
   m_ObjectHideFlags: 0
@@ -1313,7 +1314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 469766, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 156594, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}
       propertyPath: m_Name

@@ -13,7 +13,8 @@ public class CrossCarClass : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
         Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         Vector3 jeepPos = gameObject.transform.position;
@@ -28,7 +29,7 @@ public class CrossCarClass : MonoBehaviour
             Destroy(gameObject);
         }
 
-	}
+    }
 
 
 }
