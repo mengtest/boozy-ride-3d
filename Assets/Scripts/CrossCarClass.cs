@@ -23,6 +23,11 @@ public class CrossCarClass : MonoBehaviour
             gameObject.transform.Translate(new Vector3(Random.Range(3, 5) * Time.deltaTime, 0, 0), Space.World);
         }
 
+        if (playerPos.z > jeepPos.z + 10.0f)
+        {
+            Destroy(gameObject);
+        }
+
 	}
 
 
