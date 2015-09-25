@@ -21,6 +21,9 @@ public class VehicleClass : MonoBehaviour
     public AudioSource coinSound;
     public AudioSource wallCollision;
 
+    public float rotateSpeed = 80.0f;
+    private float zeroSpeed = 0.0f; 
+
     void Start()
     {
         distance = 0;
@@ -60,11 +63,33 @@ public class VehicleClass : MonoBehaviour
 
             if (value == false)
             {
-                transform.Rotate(0, Time.deltaTime * 30, 0);
+                //  transform.Rotate(0, Time.deltaTime * 30, 0,Space.Self);
+                if (transform.eulerAngles.y > 210.0)
+                {
+                    transform.Rotate(Vector3.up, zeroSpeed);
+                    //Application.LoadLevel("GameOverScene");
+                }
+                else
+                {
+                    transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+                }
+
             }
             else if (value == true)
             {
-                transform.Rotate(0, Time.deltaTime * -30, 0);
+                //transform.Rotate(0, Time.deltaTime * -30, 0,Space.Self);
+
+                if (transform.eulerAngles.y < 150)
+                {
+                    transform.Rotate(-Vector3.up, zeroSpeed);
+                    //Application.LoadLevel("GameMenuScene");
+                }
+                else
+                {
+                    transform.Rotate(-Vector3.up, rotateSpeed * Time.deltaTime);
+                }
+
+
             }
         }
 
