@@ -98,9 +98,11 @@ public class VehicleClass : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Wall" || other.gameObject.tag == "CrossCar")
-        {
+        {            
+            if(!isCollided)
+                wallCollision.Play();
+
             isCollided = true;
-            wallCollision.Play();
 
             PlayerPrefs.SetInt("yourScore", (int)distance);
 
