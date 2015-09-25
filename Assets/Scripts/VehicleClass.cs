@@ -105,6 +105,8 @@ public class VehicleClass : MonoBehaviour
             isCollided = true;
 
             PlayerPrefs.SetInt("yourScore", (int)distance);
+            if(CheckScore((int)distance))
+                PlayerPrefs.SetInt("highScore", (int)distance);
 
             print("Score: " + ((int)distance) + " High Score : " + PlayerPrefs.GetInt("highScore"));
         }
@@ -137,9 +139,6 @@ public class VehicleClass : MonoBehaviour
 
         if (oldScore < newScore)
         {
-            PlayerPrefs.SetInt("highScore", newScore);
-            print("High Score updated: " + newScore);
-
             return true;
         }
 
