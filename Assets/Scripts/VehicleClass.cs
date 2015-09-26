@@ -24,14 +24,25 @@ public class VehicleClass : MonoBehaviour
     public float rotateSpeed = 80.0f;
     private float zeroSpeed = 0.0f;
 
+
+    public GameObject leftBrakeLight;
+    public GameObject rightBrakeLight;
+
+    private Renderer lB; 
+
+
     void Start()
     {
         distance = 0;
         collectedCoins = 0;
+
     }
 
     void Update()
     {
+
+        lB.enabled = false; 
+
         if (!(Time.timeScale == 0f))
         {
             distance += 0.1f;
@@ -58,10 +69,12 @@ public class VehicleClass : MonoBehaviour
             if ((Input.GetMouseButtonDown(0) && value == false) || Input.touchCount == 1)
             {
                 value = true;
+                
             }
             else if ((Input.GetMouseButtonDown(0) && value == true) || Input.touchCount == 1)
             {
                 value = false;
+                
             }
 
             if (value == false)
@@ -167,3 +180,4 @@ public class VehicleClass : MonoBehaviour
         }
     }
 }
+
