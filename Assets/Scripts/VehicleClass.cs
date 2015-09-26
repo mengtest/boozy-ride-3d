@@ -25,10 +25,7 @@ public class VehicleClass : MonoBehaviour
     private float zeroSpeed = 0.0f;
 
 
-    public GameObject leftBrakeLight;
-    public GameObject rightBrakeLight;
-
-    private Renderer lB; 
+  
 
 
     void Start()
@@ -41,7 +38,7 @@ public class VehicleClass : MonoBehaviour
     void Update()
     {
 
-        lB.enabled = false; 
+        
 
         if (!(Time.timeScale == 0f))
         {
