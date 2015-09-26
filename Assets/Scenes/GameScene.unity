@@ -116,10 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: .91911763, g: .91911763, b: .91911763, a: 1}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 49cd6ab3814db46168b543c4e7569b4c, type: 3}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 772f0e78a4f3d4587b6bc4b78fbe9763, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
