@@ -929,7 +929,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 8
   m_Range: 5.46000004
-  m_SpotAngle: 32
+  m_SpotAngle: 71
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
