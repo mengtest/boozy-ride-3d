@@ -32,13 +32,16 @@ public class VehicleClass : MonoBehaviour
 
     void Update()
     {
-        distance += 0.1f;
-        UpdateDistance();
-        bool scorePassed = CheckScore((int)distance);
-
-        if (scorePassed)
+        if (!(Time.timeScale == 0f))
         {
-            distanceText.color = Color.cyan;
+            distance += 0.1f;
+            UpdateDistance();
+            bool scorePassed = CheckScore((int)distance);
+
+            if (scorePassed)
+            {
+                distanceText.color = Color.cyan;
+            }
         }
 
         if (isCollided)
