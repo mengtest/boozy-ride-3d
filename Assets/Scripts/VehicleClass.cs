@@ -76,11 +76,10 @@ public class VehicleClass : MonoBehaviour
 
             if (value == false)
             {
-                //  transform.Rotate(0, Time.deltaTime * 30, 0,Space.Self);
+                
                 if (transform.eulerAngles.y > 210.0)
                 {
                     transform.Rotate(Vector3.up, zeroSpeed);
-                    //Application.LoadLevel("GameOverScene");
                 }
                 else
                 {
@@ -90,12 +89,10 @@ public class VehicleClass : MonoBehaviour
             }
             else if (value == true)
             {
-                //transform.Rotate(0, Time.deltaTime * -30, 0,Space.Self);
-
                 if (transform.eulerAngles.y < 150)
                 {
                     transform.Rotate(-Vector3.up, zeroSpeed);
-                    //Application.LoadLevel("GameMenuScene");
+                    
                 }
                 else
                 {
