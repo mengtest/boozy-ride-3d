@@ -935,7 +935,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1316661967}
-  - {fileID: 1499454862}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &1425230351
@@ -1019,7 +1018,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2.5
+      scalar: .50999999
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1179,7 +1178,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1
+      scalar: .100000001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1234,14 +1233,14 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 3
-    gravityModifier: -.100000001
+    gravityModifier: -1.80999994
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 5644
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .0500000007
+    radius: .00999999978
     angle: 0
     length: 5
     boxX: 1
@@ -1255,7 +1254,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 10
+      scalar: 26.0599995
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1287,7 +1286,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 30
+    cnt0: 8
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -1295,7 +1294,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 0
+    m_BurstCount: 1
   SizeModule:
     enabled: 0
     curve:
@@ -2051,12 +2050,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1499454859}
-  m_LocalRotation: {x: -.99330312, y: 0, z: 0, w: .115537837}
-  m_LocalPosition: {x: .0430000015, y: .263000011, z: -1.12}
+  m_LocalRotation: {x: 1.62177543e-07, y: -.135623023, z: -.990760565, w: -1.55434972e-08}
+  m_LocalPosition: {x: -.843000472, y: .104795367, z: 1.40090597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1425230350}
-  m_RootOrder: 1
+  m_Father: {fileID: 1316661967}
+  m_RootOrder: 112
 --- !u!1 &1666079348
 GameObject:
   m_ObjectHideFlags: 0
