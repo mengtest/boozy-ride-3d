@@ -678,6 +678,7 @@ MonoBehaviour:
   roadTiles:
   - {fileID: 113894, guid: 35701547342cd0646956a7cb20286c01, type: 2}
   - {fileID: 156594, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}
+  - {fileID: 194040, guid: f4f6befabaec32f4bab0fdc21fc657d7, type: 2}
   coin: {fileID: 123230, guid: a1a40c5906a132e479a671d7b72364c8, type: 2}
 --- !u!4 &1041558576
 Transform:
