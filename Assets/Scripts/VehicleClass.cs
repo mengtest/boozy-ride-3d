@@ -24,22 +24,14 @@ public class VehicleClass : MonoBehaviour
     public float rotateSpeed = 80.0f;
     private float zeroSpeed = 0.0f;
 
-
-  
-
-
     void Start()
     {
         distance = 0;
-        collectedCoins = 0;
-
+        collectedCoins = 0;        
     }
 
     void Update()
     {
-
-        
-
         if (!(Time.timeScale == 0f))
         {
             distance += 0.1f;
@@ -127,6 +119,12 @@ public class VehicleClass : MonoBehaviour
                 wallCollision.Play();
 
             isCollided = true;
+
+            //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>());
+            //GetComponent<Rigidbody>().isKinematic = true;
+
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            speed = 0.0f;
 
             SetScore();
         }
