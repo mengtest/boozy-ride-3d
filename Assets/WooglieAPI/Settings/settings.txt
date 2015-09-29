@@ -1,0 +1,1 @@
+<settings><promoImagesIcon>Assets/AssetStoreWooglie/100x100test.png</promoImagesIcon><promoImagesFeatured>Assets/AssetStoreWooglie/icon.png</promoImagesFeatured></settings>

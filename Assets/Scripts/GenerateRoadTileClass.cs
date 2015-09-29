@@ -42,10 +42,10 @@ public class GenerateRoadTileClass : MonoBehaviour
         float randomZ = UnityEngine.Random.Range(distance, distance + 15.0f);
         float randomX = UnityEngine.Random.Range(-2.0f, 2.0f);
         Vector3 spawnPosition1 = new Vector3(randomX, 0.5f, randomZ);
-        Vector3 spawnPosition2 = new Vector3(randomX, 0.5f, randomZ += 2.0f);
-        Vector3 spawnPosition3 = new Vector3(randomX, 0.5f, randomZ += 2.0f);
+        //Vector3 spawnPosition2 = new Vector3(randomX, 0.5f, randomZ += 2.0f);
+        //Vector3 spawnPosition3 = new Vector3(randomX, 0.5f, randomZ += 2.0f);
         Instantiate(coin, spawnPosition1, coin.transform.rotation);
-        Instantiate(coin, spawnPosition2, coin.transform.rotation);
-        Instantiate(coin, spawnPosition3, coin.transform.rotation);
+        //Instantiate(coin, spawnPosition2, coin.transform.rotation);
+        //Instantiate(coin, spawnPosition3, coin.transform.rotation);
     }
 }

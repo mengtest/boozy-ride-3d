@@ -136,7 +136,8 @@ public class VehicleClass : MonoBehaviour
         {
             Destroy(other.gameObject);
             coinSound.Play();
-            collectedCoins++;
+            //collectedCoins++;
+            distance+=5;
             UpdateCoinCount();
         }
     }
