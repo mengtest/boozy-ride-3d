@@ -138,7 +138,7 @@ public class VehicleClass : MonoBehaviour
             coinSound.Play();
             //collectedCoins++;
             distance+=5;
-            UpdateCoinCount();
+            //UpdateCoinCount();
         }
     }
 

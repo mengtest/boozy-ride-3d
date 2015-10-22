@@ -1,23 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RoadTileClass : MonoBehaviour {
+public class RoadTileClass : MonoBehaviour
+{
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    }
 
-	void Update(){
-		//if (Vector3. (Camera.main.transform.position, transform.position) > 100.0f) {
-			//Destroy(gameObject);
-		//}
+    void Update()
+    {        
+        float distance = gameObject.transform.position.z + 100 - Camera.main.transform.position.z;
 
-		float distance = gameObject.transform.position.z + 100 - Camera.main.transform.position.z;
+        if (distance <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
 
-		if (distance <= 0) {
-			Destroy(gameObject);
-		}
-	}
+    void OnBecameInvisible()
+    {
+        //float distance = transform.position.z - GameObject.FindGameObjectWithTag("Player").transform.position.z;
+
+        //if (distance <= 0.0f)
+        //{
+        //    Destroy(gameObject);
+        //}
+    }
 
 }
