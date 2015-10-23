@@ -13,10 +13,10 @@ public class VehicleClass : MonoBehaviour
     float timer = 10.0f;
 
     public Text distanceText;
-    public Text coinText;
+    public Slider coinSlider;
 
     private float distance;
-    private int collectedCoins;
+    private int collectedCoins = 0;
 
     public AudioSource coinSound;
     public AudioSource wallCollision;
@@ -135,20 +135,32 @@ public class VehicleClass : MonoBehaviour
         {
             Destroy(other.gameObject);
             coinSound.Play();
+
             collectedCoins++;
-            //distance+=5;
-            //UpdateCoinCount();
+
+            UpdateCoinCount();
         }
     }
 
     void UpdateDistance()
     {
-        distanceText.text = ((int)distance).ToString();
+        distanceText.text = ((int)distance).ToString() + " m";
     }
 
     void UpdateCoinCount()
     {
-        coinText.text = collectedCoins.ToString();
+        coinSlider.value = collectedCoins;
+
+        if (collectedCoins == 100)
+        {
+            int oldHealth = PlayerPrefs.GetInt("availableHealth", 0);
+
+            PlayerPrefs.SetInt("availableHealth", oldHealth++);
+
+            coinSlider.value = 0;
+            collectedCoins = 0;
+        }       
+    
     }
 
     bool CheckScore(int newScore)
