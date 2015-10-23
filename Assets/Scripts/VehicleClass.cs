@@ -34,7 +34,7 @@ public class VehicleClass : MonoBehaviour
     {
         if (!(Time.timeScale == 0f))
         {
-            distance += 0.1f;
+            distance += 0.01f;
             UpdateDistance();
             bool scorePassed = CheckScore((int)distance);
 
@@ -91,7 +91,6 @@ public class VehicleClass : MonoBehaviour
                     transform.Rotate(-Vector3.up, rotateSpeed * Time.deltaTime);
                 }
 
-
             }
         }
 
@@ -103,7 +102,7 @@ public class VehicleClass : MonoBehaviour
                 wallCollision.Play();
 
             isCollided = true;
-
+            
             SetScore();
 
             Application.LoadLevel("GameOverScene");
@@ -136,8 +135,8 @@ public class VehicleClass : MonoBehaviour
         {
             Destroy(other.gameObject);
             coinSound.Play();
-            //collectedCoins++;
-            distance+=5;
+            collectedCoins++;
+            //distance+=5;
             //UpdateCoinCount();
         }
     }
@@ -167,6 +166,7 @@ public class VehicleClass : MonoBehaviour
     void SetScore()
     {
         PlayerPrefs.SetInt("yourScore", (int)distance);
+
         if (CheckScore((int)distance))
         {
             PlayerPrefs.SetInt("highScore", (int)distance);
