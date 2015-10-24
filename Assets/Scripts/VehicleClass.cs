@@ -16,7 +16,7 @@ public class VehicleClass : MonoBehaviour
     public Slider coinSlider;
 
     private float distance;
-    private int collectedCoins = 0;
+    private int collectedCoins;
 
     public AudioSource coinSound;
     public AudioSource wallCollision;
@@ -93,6 +93,8 @@ public class VehicleClass : MonoBehaviour
 
             }
         }
+
+        //Check whether the player left the play area
 
         float xPos = gameObject.transform.position.x;
 
