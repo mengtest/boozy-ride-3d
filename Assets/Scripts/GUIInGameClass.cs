@@ -4,17 +4,14 @@ using System.Collections;
 public class GUIInGameClass : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject lifePanel;
 
     private bool isPaused = false;
 
-    // Use this for initialization
     void Start()
     {
         pausePanel.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
 

@@ -15,8 +15,9 @@ public class VehicleClass : MonoBehaviour
 
     public Text distanceText;
     public Slider limeSlider;
+    public GameObject pausePanel;
 
-    private float distance;
+    public float distance;
     private int collectedLimes;
     private int missedLimes;
 
@@ -28,12 +29,15 @@ public class VehicleClass : MonoBehaviour
 
     void Start()
     {
-        distance = 0;
+        //distance = 0;
         collectedLimes = 0;
         missedLimes = 0;
 
         var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
         component.enabled = false;
+
+        PlayerPrefs.SetInt("availableHealth", 2);
+
     }
 
     void Update()
@@ -52,11 +56,21 @@ public class VehicleClass : MonoBehaviour
 
         if (isCollided)
         {
-            timer -= 1.0f;
+            int remainingLifes = PlayerPrefs.GetInt("availableHealth", 0);
 
-            if (timer == 0.0f)
+            if (remainingLifes > 0)
             {
-                Application.LoadLevel("GameOverScene");
+                Time.timeScale = 0;
+                pausePanel.SetActive(true);
+            }
+            else
+            {
+                timer -= 1.0f;
+
+                if (timer == 0.0f)
+                {
+                    Application.LoadLevel("GameOverScene");
+                }
             }
         }
         else
@@ -118,6 +132,21 @@ public class VehicleClass : MonoBehaviour
         {
             var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
             component.enabled = true;
+            component.maxVelocity = 10.0f;
+        }
+
+        if (missedLimes == 2)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = true;
+            component.maxVelocity = 7.0f;
+        }
+
+        if (missedLimes == 1)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = true;
+            component.maxVelocity = 3.0f;
         }
 
         if (missedLimes == 0)
@@ -155,18 +184,26 @@ public class VehicleClass : MonoBehaviour
             coinSound.Play();
 
             collectedLimes++;
-            missedLimes = 0;
+
+            if (missedLimes > 0)
+            {
+                missedLimes--;
+            }
+            else
+            {
+                missedLimes = 0;
+            }            
 
             UpdateLimeCount();
         }
     }
 
-    void UpdateDistance()
+    private void UpdateDistance()
     {
         distanceText.text = ((int)distance).ToString() + " m";
     }
 
-    void UpdateLimeCount()
+    private void UpdateLimeCount()
     {
         limeSlider.value = collectedLimes;
 
@@ -182,7 +219,7 @@ public class VehicleClass : MonoBehaviour
     
     }
 
-    bool CheckScore(int newScore)
+    private bool CheckScore(int newScore)
     {
         int oldScore = PlayerPrefs.GetInt("highScore", 0);
 
@@ -194,7 +231,7 @@ public class VehicleClass : MonoBehaviour
         return false;
     }
 
-    void SetScore()
+    private void SetScore()
     {
         PlayerPrefs.SetInt("yourScore", (int)distance);
 
@@ -206,7 +243,10 @@ public class VehicleClass : MonoBehaviour
 
     void MissedLime()
     {
-        missedLimes++;            
+        if (missedLimes < 3)
+        {
+            missedLimes++;
+        }
     }
 }
 
