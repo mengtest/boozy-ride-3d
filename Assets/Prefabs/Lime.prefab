@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 180656}
   m_LocalRotation: {x: .431916296, y: -.873221695, z: .22566767, w: .00252620433}
   m_LocalPosition: {x: .175275624, y: .511368811, z: .177399427}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 445358}
   - {fileID: 410382}
@@ -231,7 +231,7 @@ Halo:
   m_Color:
     serializedVersion: 2
     rgba: 1611822113
-  m_Size: .400000006
+  m_Size: .300000012
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -246,6 +246,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size
+      value: .300000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

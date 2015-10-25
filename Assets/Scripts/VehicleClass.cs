@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class VehicleClass : MonoBehaviour
 {
@@ -13,10 +14,11 @@ public class VehicleClass : MonoBehaviour
     float timer = 10.0f;
 
     public Text distanceText;
-    public Slider coinSlider;
+    public Slider limeSlider;
 
     private float distance;
-    private int collectedCoins;
+    private int collectedLimes;
+    private int missedLimes;
 
     public AudioSource coinSound;
     public AudioSource wallCollision;
@@ -27,7 +29,11 @@ public class VehicleClass : MonoBehaviour
     void Start()
     {
         distance = 0;
-        collectedCoins = 0;        
+        collectedLimes = 0;
+        missedLimes = 0;
+
+        var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+        component.enabled = false;
     }
 
     void Update()
@@ -94,8 +100,6 @@ public class VehicleClass : MonoBehaviour
             }
         }
 
-        //Check whether the player left the play area
-
         float xPos = gameObject.transform.position.x;
 
         if ((xPos < -12.0f) || (xPos > 12.0f))
@@ -108,6 +112,18 @@ public class VehicleClass : MonoBehaviour
             SetScore();
 
             Application.LoadLevel("GameOverScene");
+        }
+        
+        if (missedLimes == 3)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = true;
+        }
+
+        if (missedLimes == 0)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = false;
         }
 
     }
@@ -138,9 +154,10 @@ public class VehicleClass : MonoBehaviour
             Destroy(other.gameObject);
             coinSound.Play();
 
-            collectedCoins++;
+            collectedLimes++;
+            missedLimes = 0;
 
-            UpdateCoinCount();
+            UpdateLimeCount();
         }
     }
 
@@ -149,18 +166,18 @@ public class VehicleClass : MonoBehaviour
         distanceText.text = ((int)distance).ToString() + " m";
     }
 
-    void UpdateCoinCount()
+    void UpdateLimeCount()
     {
-        coinSlider.value = collectedCoins;
+        limeSlider.value = collectedLimes;
 
-        if (collectedCoins == 100)
+        if (collectedLimes == 100)
         {
             int oldHealth = PlayerPrefs.GetInt("availableHealth", 0);
 
             PlayerPrefs.SetInt("availableHealth", oldHealth++);
 
-            coinSlider.value = 0;
-            collectedCoins = 0;
+            limeSlider.value = 0;
+            collectedLimes = 0;
         }       
     
     }
@@ -185,6 +202,11 @@ public class VehicleClass : MonoBehaviour
         {
             PlayerPrefs.SetInt("highScore", (int)distance);
         }
+    }
+
+    void MissedLime()
+    {
+        missedLimes++;            
     }
 }
 

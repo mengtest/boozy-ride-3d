@@ -224,7 +224,6 @@ GameObject:
   - 20: {fileID: 318607451}
   - 92: {fileID: 318607450}
   - 124: {fileID: 318607449}
-  - 81: {fileID: 318607448}
   - 114: {fileID: 318607447}
   m_Layer: 0
   m_Name: Main Camera
@@ -241,16 +240,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 318607446}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a922f4dc7e66554699327c36707d73c, type: 3}
+  m_Script: {fileID: 11500000, guid: 97e9b95cf609d96409b6c40519432957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &318607448
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 318607446}
-  m_Enabled: 0
+  filterType: 2
+  preview: 1
+  previewScale: {x: 1, y: 1, z: 1}
+  movementScale: 0
+  rotationScale: 1
+  maxVelocity: 10
+  minVelocity: .100000001
+  velocityScale: .375
+  softZDistance: .00499999989
+  velocityDownsample: 1
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  shader: {fileID: 4800000, guid: 85a88efa8c871af4a9d17c64791b6f4f, type: 3}
+  dx11MotionBlurShader: {fileID: 4800000, guid: f1b13d7a80660504a858ea24cfa418c6,
+    type: 3}
+  replacementClear: {fileID: 4800000, guid: 7699c5fbfa27745a1abe111ab7bf9785, type: 3}
+  noiseTexture: {fileID: 2800000, guid: 31f5a8611c4ed1245b18456206e798dc, type: 3}
+  jitter: .0500000007
+  showVelocity: 0
+  showVelocityScale: 1
 --- !u!124 &318607449
 Behaviour:
   m_ObjectHideFlags: 0
@@ -855,6 +868,10 @@ Prefab:
       propertyPath: m_Name
       value: VehicleObject
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a2fe929cd0d90e5489d764f5a66648bd, type: 3}
+      propertyPath: m_TagString
+      value: PlayerObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2fe929cd0d90e5489d764f5a66648bd, type: 3}
   m_IsPrefabParent: 0
@@ -991,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceText: {fileID: 14095625}
-  coinSlider: {fileID: 1828462023}
+  limeSlider: {fileID: 1828462023}
   coinSound: {fileID: 474236199}
   wallCollision: {fileID: 1398050410}
   rotateSpeed: 80

@@ -12,10 +12,11 @@ public class CoinClass : MonoBehaviour
     void Update()
     {
         float playerPos = GameObject.FindGameObjectWithTag("Player").transform.position.z;
-        float coinPos = gameObject.transform.position.z;
+        float coinPos = gameObject.transform.position.z;        
 
-        if (playerPos > coinPos)
+        if (playerPos > coinPos + 15.0f)
         {
+            GameObject.FindGameObjectWithTag("PlayerObject").SendMessage("MissedLime");
             Destroy(gameObject);
         }
     }
