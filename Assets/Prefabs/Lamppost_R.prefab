@@ -24,9 +24,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412026}
+  - 64: {fileID: 6490336}
   m_Layer: 0
   m_Name: Lamppost_R
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,6 +241,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198310}
   m_Mesh: {fileID: 4300002, guid: cb2902ca49d213d4f98cf96b9805db8e, type: 3}
+--- !u!64 &6490336
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
 --- !u!108 &10802600
 Light:
   m_ObjectHideFlags: 1
@@ -295,6 +308,14 @@ Prefab:
       propertyPath: m_Cookie
       value: 
       objectReference: {fileID: 2800000, guid: 1167c0a28d11119930004d8a4241aa39, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149886}

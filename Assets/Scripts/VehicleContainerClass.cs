@@ -3,7 +3,6 @@ using System.Collections;
 
 public class VehicleContainerClass : MonoBehaviour
 {
-
     private float speed = 5.0f;
     bool value = false;
 
@@ -19,25 +18,18 @@ public class VehicleContainerClass : MonoBehaviour
 
         gameObject.transform.Translate(0, 0, speed * Time.deltaTime, Space.World);
 
-
-        if ((Input.GetMouseButtonDown(0) && value == false) || Input.touchCount == 1)
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            value = true;
-        }
-        else if ((Input.GetMouseButtonDown(0) && value == true) || Input.touchCount == 1)
-        {
-            value = false;
+            value = !value;
         }
 
-        if (value == false)
-        {
-            transform.Translate(new Vector3(1 * Time.deltaTime * 4, 0, 0));
-
-        }
-        else if (value == true)
+        if (value)
         {
             transform.Translate(new Vector3(-1 * Time.deltaTime * 4, 0, 0));
-
+        }
+        else
+        {
+            transform.Translate(new Vector3(1 * Time.deltaTime * 4, 0, 0));
         }
 
     }

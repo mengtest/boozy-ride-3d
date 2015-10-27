@@ -9,7 +9,7 @@ public class GUIInGameClass : MonoBehaviour
 
     void Start()
     {
-        //pausePanel.SetActive(false);
+
     }
 
     void Update()

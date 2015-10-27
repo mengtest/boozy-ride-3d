@@ -64,7 +64,7 @@ public class VehicleClass : MonoBehaviour
 
             if (remainingLifes > 0)
             {
-                Time.timeScale = 0;                
+                Time.timeScale = 0;
                 lifePanel.SetActive(true);
             }
             else
@@ -79,20 +79,24 @@ public class VehicleClass : MonoBehaviour
         }
         else
         {
-            if ((Input.GetMouseButtonDown(0) && value == false) || Input.touchCount == 1)
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
-                value = true;
-                
-            }
-            else if ((Input.GetMouseButtonDown(0) && value == true) || Input.touchCount == 1)
-            {
-                value = false;
-                
+                value = !value;
             }
 
-            if (value == false)
+            if (value)
             {
-                
+                if (transform.eulerAngles.y < 150)
+                {
+                    transform.Rotate(-Vector3.up, zeroSpeed);
+                }
+                else
+                {
+                    transform.Rotate(-Vector3.up, rotateSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
                 if (transform.eulerAngles.y > 210.0)
                 {
                     transform.Rotate(Vector3.up, zeroSpeed);
@@ -101,20 +105,6 @@ public class VehicleClass : MonoBehaviour
                 {
                     transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
                 }
-
-            }
-            else if (value == true)
-            {
-                if (transform.eulerAngles.y < 150)
-                {
-                    transform.Rotate(-Vector3.up, zeroSpeed);
-                    
-                }
-                else
-                {
-                    transform.Rotate(-Vector3.up, rotateSpeed * Time.deltaTime);
-                }
-
             }
         }
 
@@ -126,10 +116,7 @@ public class VehicleClass : MonoBehaviour
                 wallCollision.Play();
 
             isCollided = true;
-            
             SetScore();
-
-            Application.LoadLevel("GameOverScene");
         }
 
         ActionForMissedLimes();
@@ -172,8 +159,7 @@ public class VehicleClass : MonoBehaviour
             else
             {
                 missedLimes = 0;
-            }            
-
+            }
         }
     }
 
@@ -194,8 +180,7 @@ public class VehicleClass : MonoBehaviour
 
             limeSlider.value = 0;
             collectedLimes = 0;
-        }       
-    
+        }
     }
 
     private bool CheckScore(int newScore)
@@ -257,11 +242,14 @@ public class VehicleClass : MonoBehaviour
             component.enabled = false;
         }
     }
-    
+
     void RestartGame()
     {
         isCollided = false;
+        value = false;
         Time.timeScale = 1.0f;
+        missedLimes = 0;
+        collectedLimes = 0;
 
         gameObject.transform.eulerAngles = initAngle;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -282,5 +270,6 @@ public class VehicleClass : MonoBehaviour
     {
         Application.LoadLevel("GameOverScene");
     }
+
 }
 
