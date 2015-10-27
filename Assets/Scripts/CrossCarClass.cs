@@ -3,19 +3,13 @@ using System.Collections;
 
 public class CrossCarClass : MonoBehaviour
 {
-
-    private float speed = 5.0f;
-
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         Vector3 jeepPos = gameObject.transform.position;
 
@@ -28,7 +22,6 @@ public class CrossCarClass : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
 

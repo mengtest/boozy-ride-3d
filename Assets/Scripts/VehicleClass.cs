@@ -6,8 +6,6 @@ using UnityStandardAssets.ImageEffects;
 public class VehicleClass : MonoBehaviour
 {
 
-    float speed = 5.0f;
-
     bool value = false;
     bool isCollided = false;
 
@@ -17,6 +15,7 @@ public class VehicleClass : MonoBehaviour
     public Slider limeSlider;
     public GameObject pausePanel;
     public GameObject lifePanel;
+
     private GameObject collidedCar;
 
     public float distance;
@@ -30,15 +29,15 @@ public class VehicleClass : MonoBehaviour
     private float zeroSpeed = 0.0f;
 
     private Vector3 initAngle;
-    private Vector3 initPosition;
 
     void Start()
     {
+        Time.timeScale = 1.0f;
+
         collectedLimes = 0;
         missedLimes = 0;
 
         initAngle = gameObject.transform.eulerAngles;
-        initPosition = gameObject.transform.position;
 
         PlayerPrefs.SetInt("availableHealth", 2);
     }
@@ -60,6 +59,8 @@ public class VehicleClass : MonoBehaviour
         if (isCollided)
         {
             int remainingLifes = PlayerPrefs.GetInt("availableHealth", 0);
+
+            print(remainingLifes);
 
             if (remainingLifes > 0)
             {
@@ -162,6 +163,8 @@ public class VehicleClass : MonoBehaviour
 
             collectedLimes++;
 
+            UpdateLimeCount();
+
             if (missedLimes > 0)
             {
                 missedLimes--;
@@ -171,7 +174,6 @@ public class VehicleClass : MonoBehaviour
                 missedLimes = 0;
             }            
 
-            UpdateLimeCount();
         }
     }
 
@@ -184,11 +186,11 @@ public class VehicleClass : MonoBehaviour
     {
         limeSlider.value = collectedLimes;
 
-        if (collectedLimes == 50)
+        if (collectedLimes == 10)
         {
             int oldHealth = PlayerPrefs.GetInt("availableHealth", 0);
 
-            PlayerPrefs.SetInt("availableHealth", oldHealth++);
+            PlayerPrefs.SetInt("availableHealth", ++oldHealth);
 
             limeSlider.value = 0;
             collectedLimes = 0;
@@ -264,15 +266,21 @@ public class VehicleClass : MonoBehaviour
         gameObject.transform.eulerAngles = initAngle;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                
-        //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collidedCar.gameObject.GetComponent<Collider>());
-        //collidedCar.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        gameObject.transform.position = new Vector3(0.0f, transform.position.y, transform.position.z);
 
         Destroy(collidedCar);
 
         distance = PlayerPrefs.GetInt("yourScore", 0);
         lifePanel.SetActive(false);
 
+        int oldHealth = PlayerPrefs.GetInt("availableHealth", 0);
+        PlayerPrefs.SetInt("availableHealth", --oldHealth);
+    }
+
+    void EndGame()
+    {
+        Application.LoadLevel("GameOverScene");
     }
 }
 
