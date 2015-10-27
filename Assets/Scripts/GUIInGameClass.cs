@@ -3,13 +3,13 @@ using System.Collections;
 
 public class GUIInGameClass : MonoBehaviour
 {
-    public GameObject pausePanel;
+    //public GameObject pausePanel;
 
     private bool isPaused = false;
 
     void Start()
     {
-        pausePanel.SetActive(false);
+        //pausePanel.SetActive(false);
     }
 
     void Update()
@@ -19,8 +19,8 @@ public class GUIInGameClass : MonoBehaviour
 
     public void PauseOrResume()
     {
-        isPaused = togglePause();
-        pausePanel.SetActive(isPaused);
+        //isPaused = togglePause();
+        //pausePanel.SetActive(isPaused);
     }
 
     bool togglePause()
@@ -35,5 +35,10 @@ public class GUIInGameClass : MonoBehaviour
             Time.timeScale = 0f;
             return true;
         }
+    }
+
+    public void RestartGame()
+    {
+        GameObject.FindGameObjectWithTag("PlayerObject").SendMessage("RestartGame");
     }
 }

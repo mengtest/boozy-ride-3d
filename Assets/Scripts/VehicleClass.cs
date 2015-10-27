@@ -16,6 +16,8 @@ public class VehicleClass : MonoBehaviour
     public Text distanceText;
     public Slider limeSlider;
     public GameObject pausePanel;
+    public GameObject lifePanel;
+    private GameObject collidedCar;
 
     public float distance;
     private int collectedLimes;
@@ -27,17 +29,18 @@ public class VehicleClass : MonoBehaviour
     public float rotateSpeed = 80.0f;
     private float zeroSpeed = 0.0f;
 
+    private Vector3 initAngle;
+    private Vector3 initPosition;
+
     void Start()
     {
-        //distance = 0;
         collectedLimes = 0;
         missedLimes = 0;
 
-        var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
-        component.enabled = false;
+        initAngle = gameObject.transform.eulerAngles;
+        initPosition = gameObject.transform.position;
 
         PlayerPrefs.SetInt("availableHealth", 2);
-
     }
 
     void Update()
@@ -45,7 +48,7 @@ public class VehicleClass : MonoBehaviour
         if (!(Time.timeScale == 0f))
         {
             distance += 0.01f;
-            UpdateDistance();
+            SetDistance();
             bool scorePassed = CheckScore((int)distance);
 
             if (scorePassed)
@@ -60,8 +63,8 @@ public class VehicleClass : MonoBehaviour
 
             if (remainingLifes > 0)
             {
-                Time.timeScale = 0;
-                pausePanel.SetActive(true);
+                Time.timeScale = 0;                
+                lifePanel.SetActive(true);
             }
             else
             {
@@ -127,33 +130,8 @@ public class VehicleClass : MonoBehaviour
 
             Application.LoadLevel("GameOverScene");
         }
-        
-        if (missedLimes == 3)
-        {
-            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
-            component.enabled = true;
-            component.maxVelocity = 10.0f;
-        }
 
-        if (missedLimes == 2)
-        {
-            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
-            component.enabled = true;
-            component.maxVelocity = 7.0f;
-        }
-
-        if (missedLimes == 1)
-        {
-            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
-            component.enabled = true;
-            component.maxVelocity = 3.0f;
-        }
-
-        if (missedLimes == 0)
-        {
-            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
-            component.enabled = false;
-        }
+        ActionForMissedLimes();
 
     }
 
@@ -166,13 +144,12 @@ public class VehicleClass : MonoBehaviour
 
             isCollided = true;
 
-            //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>());
-            //GetComponent<Rigidbody>().isKinematic = true;
-
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            speed = 0.0f;
-
             SetScore();
+        }
+
+        if (other.gameObject.tag == "CrossCar")
+        {
+            collidedCar = other.gameObject;
         }
     }
 
@@ -198,7 +175,7 @@ public class VehicleClass : MonoBehaviour
         }
     }
 
-    private void UpdateDistance()
+    private void SetDistance()
     {
         distanceText.text = ((int)distance).ToString() + " m";
     }
@@ -207,7 +184,7 @@ public class VehicleClass : MonoBehaviour
     {
         limeSlider.value = collectedLimes;
 
-        if (collectedLimes == 100)
+        if (collectedLimes == 50)
         {
             int oldHealth = PlayerPrefs.GetInt("availableHealth", 0);
 
@@ -247,6 +224,55 @@ public class VehicleClass : MonoBehaviour
         {
             missedLimes++;
         }
+    }
+
+    void ActionForMissedLimes()
+    {
+        if (missedLimes == 3)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = true;
+            component.maxVelocity = 10.0f;
+        }
+
+        if (missedLimes == 2)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = true;
+            component.maxVelocity = 7.0f;
+        }
+
+        if (missedLimes == 1)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = true;
+            component.maxVelocity = 3.0f;
+        }
+
+        if (missedLimes == 0)
+        {
+            var component = GameObject.Find("Main Camera").GetComponent<CameraMotionBlur>();
+            component.enabled = false;
+        }
+    }
+    
+    void RestartGame()
+    {
+        isCollided = false;
+        Time.timeScale = 1.0f;
+
+        gameObject.transform.eulerAngles = initAngle;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                
+        //Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collidedCar.gameObject.GetComponent<Collider>());
+        //collidedCar.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        Destroy(collidedCar);
+
+        distance = PlayerPrefs.GetInt("yourScore", 0);
+        lifePanel.SetActive(false);
+
     }
 }
 
