@@ -33,6 +33,10 @@ public class VehicleClass : MonoBehaviour
 
     private Vector3 initAngle;
 
+    //Handling Human Collision and Score 
+    public GameObject humanSpawner;
+    private bool isHumanSpawnerCalled = false;
+
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -125,7 +129,17 @@ public class VehicleClass : MonoBehaviour
         ActionForMissedLimes();
         ActionForContinousMissedLimes();
         UpdateDizz();
+        HumanSpawning(); 
 
+    }
+
+    void HumanSpawning()
+    {
+        if (!isHumanSpawnerCalled && (int)distance > 100)
+        {
+            Instantiate(humanSpawner, new Vector3(0,0,0), Quaternion.identity);
+            isHumanSpawnerCalled = true; 
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -145,12 +159,7 @@ public class VehicleClass : MonoBehaviour
             collidedCar = other.gameObject;
         }
 
-        //Handle the Collision Between Human and Vehicle 
-        if (other.gameObject.tag == "HumanSpawn")
-        {
-            float minusDistance = distance * 0.2f;
-            distance -= minusDistance; //reduce the score when collided with the human 
-        }
+      
         
     }
 
@@ -173,6 +182,13 @@ public class VehicleClass : MonoBehaviour
             {
                 missedLimes = 0;
             }
+        }
+
+        //Handle the Collision Between Human and Vehicle 
+        if (other.gameObject.tag == "HumanSpawn")
+        {
+            float minusDistance = distance * 0.2f;
+            distance -= minusDistance; //reduce the score when collided with the human 
         }
     }
 
