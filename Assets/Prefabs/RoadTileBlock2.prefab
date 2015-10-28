@@ -313,6 +313,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458262}
+  - 64: {fileID: 6497174}
   m_Layer: 0
   m_Name: Lamppost_L
   m_TagString: Untagged
@@ -1712,6 +1713,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 3f8e3cc73c8c0c84e9a90eb5aa2b886f, type: 3}
+--- !u!64 &6497174
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 0}
 --- !u!65 &6501036
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1757,7 +1770,7 @@ Animator:
   m_GameObject: {fileID: 160064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bfbe3f6c3b01aca47bb1ce9ea27bc418, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1774,7 +1787,7 @@ Animator:
   m_GameObject: {fileID: 168156}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 10d5972a5440d489f8a54e2d7498188b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3f197d0d29569e34b8545bab1f6bb2ff, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
