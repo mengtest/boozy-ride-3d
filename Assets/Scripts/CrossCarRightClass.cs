@@ -3,14 +3,11 @@ using System.Collections;
 
 public class CrossCarRightClass : MonoBehaviour
 {
-
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
