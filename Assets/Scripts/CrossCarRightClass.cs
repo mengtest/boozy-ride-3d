@@ -18,7 +18,7 @@ public class CrossCarRightClass : MonoBehaviour
 
         if (Vector3.Distance(playerPos, jeepPos) < 15.0f)
         {
-            gameObject.transform.Translate((-1) * new Vector3(Random.Range(4, 7) * Time.deltaTime, 0, 0), Space.World);
+            gameObject.transform.Translate((-1) * new Vector3(Random.Range(3, 6) * Time.deltaTime, 0, 0), Space.World);
         }
 
         if (playerPos.z > jeepPos.z + 10.0f)
