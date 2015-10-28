@@ -118,8 +118,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2, y: -28}
-  m_SizeDelta: {x: 339, y: 164}
+  m_AnchoredPosition: {x: -1.14440918e-05, y: -26}
+  m_SizeDelta: {x: 377, y: 136}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &48546571
 MonoBehaviour:
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 16
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -146,12 +146,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: sdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd
-    fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs
-    fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd
-    fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs
-    fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd fsdf sd fs fsfsdfdsfsd
-    fsdf sd fs fsfsdfdsfsd fsdf sd fs fsf
+  m_Text: "---Controls\nClick/Space Key to change the direction of the Trishaw. \nEsc
+    to Pause\n\n---Gameplay\nDrive the Trishaw along the infinite path without getting
+    into any obstacles. \nCollect limes to control the dizziness of the drunken driver.
+    \nMissing more than three limes will end the game.\nBeware on hitting pedestrians.
+    It reduces the score.\n"
 --- !u!222 &48546572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -379,6 +378,7 @@ RectTransform:
   - {fileID: 720760090}
   - {fileID: 527431861}
   - {fileID: 2036497743}
+  - {fileID: 1306747745}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -658,7 +658,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -91, y: 81}
+  m_AnchoredPosition: {x: -108.5, y: 57.0000229}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &635819404
@@ -821,6 +821,72 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 720760089}
+--- !u!1 &1306747742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1306747745}
+  - 222: {fileID: 1306747744}
+  - 114: {fileID: 1306747743}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1306747743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306747742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Game Development 2015
+--- !u!222 &1306747744
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306747742}
+--- !u!224 &1306747745
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306747742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 267084163}
+  m_RootOrder: 5
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -301}
+  m_SizeDelta: {x: 173, y: 20}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &1411681129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,8 +1071,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 188, y: 178.389999}
-  m_SizeDelta: {x: -423, y: -356.769989}
+  m_AnchoredPosition: {x: 180.250031, y: 196}
+  m_SizeDelta: {x: -408, y: -393}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2036497744
 MonoBehaviour:
