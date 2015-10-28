@@ -139,6 +139,14 @@ public class VehicleClass : MonoBehaviour
         {
             collidedCar = other.gameObject;
         }
+
+        //Handle the Collision Between Human and Vehicle 
+        if (other.gameObject.tag == "HumanSpawn")
+        {
+            float minusDistance = distance * 0.2f;
+            distance -= minusDistance; //reduce the score when collided with the human 
+        }
+        
     }
 
     void OnTriggerEnter(Collider other)
