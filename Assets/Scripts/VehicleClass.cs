@@ -13,6 +13,7 @@ public class VehicleClass : MonoBehaviour
 
     public Text distanceText;
     public Slider limeSlider;
+    public Slider dizzSlider;
     public GameObject pausePanel;
     public GameObject lifePanel;
 
@@ -59,8 +60,6 @@ public class VehicleClass : MonoBehaviour
         if (isCollided)
         {
             int remainingLifes = PlayerPrefs.GetInt("availableHealth", 0);
-
-            print(remainingLifes);
 
             if (remainingLifes > 0)
             {
@@ -120,6 +119,7 @@ public class VehicleClass : MonoBehaviour
         }
 
         ActionForMissedLimes();
+        UpdateDizz();
 
     }
 
@@ -210,7 +210,23 @@ public class VehicleClass : MonoBehaviour
         if (missedLimes < 3)
         {
             missedLimes++;
+
+            if (collectedLimes >= 5)
+            {
+                collectedLimes -= 5;
+            }
+            else
+            {
+                collectedLimes = 0;
+            }
+
+            UpdateLimeCount();
         }
+    }
+
+    void UpdateDizz()
+    {
+        dizzSlider.value = Random.Range(missedLimes*10 - 1, missedLimes*10 + 1); 
     }
 
     void ActionForMissedLimes()
