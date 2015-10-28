@@ -9,6 +9,8 @@ TagManager:
   - Env
   - Coin
   - CrossCar
+  - PlayerObject
+  - New Tag
   layers:
   - Default
   - TransparentFX
