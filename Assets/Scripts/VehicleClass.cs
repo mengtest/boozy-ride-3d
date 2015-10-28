@@ -12,6 +12,7 @@ public class VehicleClass : MonoBehaviour
     float timer = 10.0f;
 
     public Text distanceText;
+    public Text remainingLife;
     public Slider limeSlider;
     public Slider dizzSlider;
     public GameObject pausePanel;
@@ -117,6 +118,8 @@ public class VehicleClass : MonoBehaviour
             isCollided = true;
             SetScore();
         }
+
+        remainingLife.text = PlayerPrefs.GetInt("availableHealth", 0).ToString();
 
         ActionForMissedLimes();
         UpdateDizz();
