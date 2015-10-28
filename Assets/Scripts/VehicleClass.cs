@@ -27,6 +27,7 @@ public class VehicleClass : MonoBehaviour
 
     public AudioSource coinSound;
     public AudioSource wallCollision;
+    public AudioSource gruntSound;
 
     public float rotateSpeed = 80.0f;
     private float zeroSpeed = 0.0f;
@@ -53,13 +54,17 @@ public class VehicleClass : MonoBehaviour
     {
         if (!(Time.timeScale == 0f))
         {
-            distance += 0.01f;
+            distance += 0.1f;
             SetDistance();
             bool scorePassed = CheckScore((int)distance);
 
             if (scorePassed)
             {
                 distanceText.color = Color.cyan;
+            }
+            else
+            {
+                distanceText.color = Color.white;
             }
         }
 
@@ -157,9 +162,7 @@ public class VehicleClass : MonoBehaviour
         if (other.gameObject.tag == "CrossCar")
         {
             collidedCar = other.gameObject;
-        }
-
-      
+        }      
         
     }
 
@@ -187,6 +190,8 @@ public class VehicleClass : MonoBehaviour
         //Handle the Collision Between Human and Vehicle 
         if (other.gameObject.tag == "HumanSpawn")
         {
+            gruntSound.Play();
+
             float minusDistance = distance * 0.2f;
             distance -= minusDistance; //reduce the score when collided with the human 
         }
