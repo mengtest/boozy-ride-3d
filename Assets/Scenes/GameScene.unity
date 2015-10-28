@@ -371,7 +371,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 585694622}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 1.52587891e-05, y: 14.5000153}
@@ -819,8 +819,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 100923881}
-  - {fileID: 171310788}
   - {fileID: 1736034018}
+  - {fileID: 171310788}
   m_Father: {fileID: 451459461}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -1156,7 +1156,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488740, guid: f4f6befabaec32f4bab0fdc21fc657d7, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4f6befabaec32f4bab0fdc21fc657d7, type: 2}
@@ -3530,7 +3530,7 @@ RectTransform:
   m_Children:
   - {fileID: 2035490488}
   m_Father: {fileID: 585694622}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 65.4999847, y: -178}
@@ -3770,7 +3770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .375, g: .187538028, b: .118566178, a: 1}
+  m_Color: {r: .323529422, g: .163536578, b: .104671285, a: 1}
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 1
@@ -3978,7 +3978,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 469766, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cc61d6dc0dd0944c9fbe72fd1a275ec, type: 2}

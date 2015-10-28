@@ -40,7 +40,7 @@ public class VehicleClass : MonoBehaviour
 
         initAngle = gameObject.transform.eulerAngles;
 
-        PlayerPrefs.SetInt("availableHealth", 2);
+        PlayerPrefs.SetInt("availableHealth", 5);
     }
 
     void Update()

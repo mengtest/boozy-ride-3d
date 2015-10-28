@@ -14,7 +14,10 @@ public class GUIInGameClass : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseOrResume();
+        }
     }
 
     public void PauseOrResume()
