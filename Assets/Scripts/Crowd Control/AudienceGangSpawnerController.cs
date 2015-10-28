@@ -20,7 +20,7 @@ public class AudienceGangSpawnerController : MonoBehaviour {
     void GenerateAudience()
     {
         Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        float randomZ = UnityEngine.Random.Range(playerPos.z + 3.0f, playerPos.z + 10.0f); //Random position of the audience along z axis 
+        float randomZ = UnityEngine.Random.Range(playerPos.z + 20.0f, playerPos.z + 30.0f); //Random position of the audience along z axis 
         float randomSpawnStatus = Random.Range(-10, 10);
 
         //The Spawner wont spawn for every time interval 
