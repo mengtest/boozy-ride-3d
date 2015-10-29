@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AnimationList 
 {
-    private static string[] animList = { "applause", "applause2", "celebration", "celebration2", "celebration3" };
+    private static string[] animList = { "idle","celebration", "celebration2", "celebration3" };
 
     public static string randomAnimation()
     { 

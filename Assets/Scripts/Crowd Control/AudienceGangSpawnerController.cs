@@ -8,7 +8,7 @@ public class AudienceGangSpawnerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("GenerateAudience", 4.0f, 2.0f);
+        InvokeRepeating("GenerateAudience", 4.0f, 5.0f);
 	}
 	
 	// Update is called once per frame
@@ -35,10 +35,10 @@ public class AudienceGangSpawnerController : MonoBehaviour {
             }
             else if (randomSide == 0)
             {
-                Vector3 spawnPosition1 = new Vector3(-3.4f, 0.0f, randomZ);
+                Vector3 spawnPosition1 = new Vector3(-0.4f, 0.0f, randomZ);
                 Instantiate(leftGang, spawnPosition1, Quaternion.identity);
 
-                Vector3 spawnPosition2 = new Vector3(3.4f, 0.0f, randomZ);
+                Vector3 spawnPosition2 = new Vector3(0.4f, 0.0f, randomZ);
                 Instantiate(rightGang, spawnPosition2, Quaternion.identity);
             }
             //Right Only 
